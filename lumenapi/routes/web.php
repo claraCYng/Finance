@@ -39,3 +39,13 @@ $router->post('/new', ['uses' => 'prodController@createDataProduction']);
 $router->get('/all', ['uses' => 'prodController@getDataProduction']);
 });
 
+$router->group(['prefix' => '/api/maintenances'], function () use ($router) {
+    $router->get('/', ['uses' => 'MaintenanceController@getAllMaintenances']);
+    $router->get('/{id}', ['uses'=> 'MaintenanceController@getMaintenanceById']);
+    $router->post('/', ['uses'=> 'MaintenanceController@createMaintenance']);
+    $router->put('/{id}', ['uses'=> 'MaintenanceController@updateMaintenance']);
+    $router->delete('/{id}', ['uses'=> 'MaintenanceController@deleteMaintenance']);
+});
+
+
+
