@@ -13,6 +13,29 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', ['uses' => 'prodController@index']);
+
+$router->get('/get', function () {
+    return 'GET';
 });
+
+$router->post('/post', function () {
+    return 'POST';
+});
+$router->put('/put', function () {
+    return 'PUT';
+});
+$router->delete('/delete', function () {
+    return 'DELETE';
+});
+
+
+$router->get('/awal', ['uses' => 'prodController@awal']); 
+
+// Tiga Route prod
+$router->group(['prefix' => 'dataProduction'], function () use ($router) {
+$router->post('/default', ['uses' => 'prodController@defaultProduction']);
+$router->post('/new', ['uses' => 'prodController@createDataProduction']);
+$router->get('/all', ['uses' => 'prodController@getDataProduction']);
+});
+
