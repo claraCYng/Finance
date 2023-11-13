@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -45,6 +47,10 @@ $router->group(['prefix' => '/api/maintenances'], function () use ($router) {
     $router->post('/', ['uses'=> 'MaintenanceController@createMaintenance']);
     $router->put('/{id}', ['uses'=> 'MaintenanceController@updateMaintenance']);
     $router->delete('/{id}', ['uses'=> 'MaintenanceController@deleteMaintenance']);
+});
+
+$router->get('/key', function () {
+    return Str::random(32);
 });
 
 
