@@ -41,6 +41,15 @@ $router->post('/new', ['uses' => 'prodController@createDataProduction']);
 $router->get('/all', ['uses' => 'prodController@getDataProduction']);
 });
 
+
+//route regulasi
+$router->group(['prefix' => 'regulation'], function () use ($router) {
+$router->post('/default', ['uses' => 'RegulasiCont@defaultRegulation']);
+$router->post('/new', ['uses' => 'RegulasiCont@createRegulation']);
+$router->get('/all', ['uses' => 'RegulasiCont@getRegulation']);
+});
+
+
 $router->group(['prefix' => '/api/maintenances'], function () use ($router) {
     $router->get('/', ['uses' => 'MaintenanceController@getAllMaintenances']);
     $router->get('/{id}', ['uses'=> 'MaintenanceController@getMaintenanceById']);
@@ -52,6 +61,8 @@ $router->group(['prefix' => '/api/maintenances'], function () use ($router) {
 $router->get('/key', function () {
     return Str::random(32);
 });
+
+$router->get('/', ['uses' => 'prodController@awal']); 
 
 
 
