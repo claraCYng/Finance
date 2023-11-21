@@ -58,6 +58,17 @@ $router->group(['prefix' => '/api/maintenances'], function () use ($router) {
     $router->delete('/{id}', ['uses'=> 'MaintenanceController@deleteMaintenance']);
 });
 
+// route finance report
+$router->group(['prefix' => '/financereport'], function () use ($router){
+    $router->get('/', ['uses' => 'FinanceReportCont@getAllMaintenances']);
+    $router->get('/{id}', ['uses'=> 'FinanceReportCont@getMaintenanceById']);
+    $router->post('/', ['uses'=> 'FinanceReportCont@createMaintenance']);
+    $router->put('/{id}', ['uses'=> 'FinanceReportCont@updateMaintenance']);
+    $router->delete('/{id}', ['uses'=> 'FinanceReportCont@deleteMaintenance']);
+});
+
+
+
 $router->get('/key', function () {
     return Str::random(32);
 });
