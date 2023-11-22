@@ -60,11 +60,11 @@ $router->group(['prefix' => '/api/maintenances'], function () use ($router) {
 
 // route finance report
 $router->group(['prefix' => '/financereport'], function () use ($router){
-    $router->get('/', ['uses' => 'FinanceReportCont@getAllMaintenances']);
-    $router->get('/{id}', ['uses'=> 'FinanceReportCont@getMaintenanceById']);
-    $router->post('/', ['uses'=> 'FinanceReportCont@createMaintenance']);
-    $router->put('/{id}', ['uses'=> 'FinanceReportCont@updateMaintenance']);
-    $router->delete('/{id}', ['uses'=> 'FinanceReportCont@deleteMaintenance']);
+    $router->get('/', ['uses' => 'FinanceReportCont@getAllReport']);
+    $router->get('/{id}', ['uses'=> 'FinanceReportCont@getReportById']);
+    $router->post('/', ['uses'=> 'FinanceReportCont@createReport']);
+    $router->put('/{id}', ['uses'=> 'FinanceReportCont@updateReport']);
+    $router->delete('/{id}', ['uses'=> 'FinanceReportCont@deleteReport']);
 });
 
 
