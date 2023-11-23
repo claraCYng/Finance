@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-class ExampleController extends Controller
+use App\Models\FinanceReport;
+
+class FinanceReportCont extends Controller
 {
     /**
      * Create a new controller instance.
@@ -14,5 +16,12 @@ class ExampleController extends Controller
         
     }
 
-    //
+    public static function hitung_laba() {
+        $data = FinanceReport::all('jumlah')->sum('jumlah');
+
+        return response()->json([
+            'status' => 'Success',
+            $data,
+        ],200);;
+    }
 }

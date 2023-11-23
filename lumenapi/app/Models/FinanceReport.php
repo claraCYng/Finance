@@ -8,9 +8,13 @@ class FinanceReport extends Model
 {
     use HasFactory;
 
+    protected $table = 'finance_report';
+
     protected $fillable = [
-        'tahun',
+        'nama_transaksi',
         'jumlah',
+        'tanggal_transaksi',
+        'jumlah_laba'
     ];
 
     public static function hitung_laba($tahun)

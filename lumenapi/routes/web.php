@@ -36,17 +36,17 @@ $router->get('/awal', ['uses' => 'prodController@awal']);
 
 // Tiga Route prod
 $router->group(['prefix' => 'dataProduction'], function () use ($router) {
-$router->post('/default', ['uses' => 'prodController@defaultProduction']);
-$router->post('/new', ['uses' => 'prodController@createDataProduction']);
-$router->get('/all', ['uses' => 'prodController@getDataProduction']);
+    $router->post('/default', ['uses' => 'prodController@defaultProduction']);
+    $router->post('/new', ['uses' => 'prodController@createDataProduction']);
+    $router->get('/all', ['uses' => 'prodController@getDataProduction']);
 });
 
 
 //route regulasi
 $router->group(['prefix' => 'regulation'], function () use ($router) {
-$router->post('/default', ['uses' => 'RegulasiCont@defaultRegulation']);
-$router->post('/new', ['uses' => 'RegulasiCont@createRegulation']);
-$router->get('/all', ['uses' => 'RegulasiCont@getRegulation']);
+    $router->post('/default', ['uses' => 'RegulasiCont@defaultRegulation']);
+    $router->post('/new', ['uses' => 'RegulasiCont@createRegulation']);
+    $router->get('/all', ['uses' => 'RegulasiCont@getRegulation']);
 });
 
 
@@ -65,6 +65,7 @@ $router->group(['prefix' => '/financereport'], function () use ($router){
     $router->post('/', ['uses'=> 'FinanceReportCont@createReport']);
     $router->put('/{id}', ['uses'=> 'FinanceReportCont@updateReport']);
     $router->delete('/{id}', ['uses'=> 'FinanceReportCont@deleteReport']);
+    $router->get('/jumlah', ['uses'=> 'FinanceReportCont@hitung_laba']);
 });
 
 
