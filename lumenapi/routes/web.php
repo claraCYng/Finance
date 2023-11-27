@@ -32,7 +32,7 @@ $router->delete('/delete', function () {
 });
 
 
-$router->get('/awal', ['uses' => 'prodController@awal']); 
+$router->get('/awal', ['uses' => 'prodController@awal']);
 
 // Tiga Route prod
 $router->group(['prefix' => 'dataProduction'], function () use ($router) {
@@ -52,20 +52,29 @@ $router->group(['prefix' => 'regulation'], function () use ($router) {
 
 $router->group(['prefix' => '/api/maintenances'], function () use ($router) {
     $router->get('/', ['uses' => 'MaintenanceController@getAllMaintenances']);
-    $router->get('/{id}', ['uses'=> 'MaintenanceController@getMaintenanceById']);
-    $router->post('/', ['uses'=> 'MaintenanceController@createMaintenance']);
-    $router->put('/{id}', ['uses'=> 'MaintenanceController@updateMaintenance']);
-    $router->delete('/{id}', ['uses'=> 'MaintenanceController@deleteMaintenance']);
+    $router->get('/{id}', ['uses' => 'MaintenanceController@getMaintenanceById']);
+    $router->post('/', ['uses' => 'MaintenanceController@createMaintenance']);
+    $router->put('/{id}', ['uses' => 'MaintenanceController@updateMaintenance']);
+    $router->delete('/{id}', ['uses' => 'MaintenanceController@deleteMaintenance']);
 });
 
 // route finance report
-$router->group(['prefix' => '/financereport'], function () use ($router){
+$router->group(['prefix' => '/financereport'], function () use ($router) {
     $router->get('/', ['uses' => 'FinanceReportCont@getAllReport']);
-    $router->get('/{id}', ['uses'=> 'FinanceReportCont@getReportById']);
-    $router->post('/', ['uses'=> 'FinanceReportCont@createReport']);
-    $router->put('/{id}', ['uses'=> 'FinanceReportCont@updateReport']);
-    $router->delete('/{id}', ['uses'=> 'FinanceReportCont@deleteReport']);
-    $router->get('/jumlah', ['uses'=> 'FinanceReportCont@hitung_laba']);
+    $router->get('/{id}', ['uses' => 'FinanceReportCont@getReportById']);
+    $router->post('/', ['uses' => 'FinanceReportCont@createReport']);
+    $router->put('/{id}', ['uses' => 'FinanceReportCont@updateReport']);
+    $router->delete('/{id}', ['uses' => 'FinanceReportCont@deleteReport']);
+    $router->get('/jumlah', ['uses' => 'FinanceReportCont@hitung_laba']);
+});
+
+//route financial acc
+$router->group(['prefix' => '/api/financialaccount'], function () use ($router) {
+    $router->get('/', ['uses' => 'FinancialAccountController@getAllAccount']);
+    $router->get('/{id}', ['uses' => 'FinancialAccountController@getAccountById']);
+    $router->post('/', ['uses' => 'FinancialAccountController@createAccount']);
+    $router->put('/{id}', ['uses' => 'FinancialAccountController@updateAccount']);
+    $router->delete('/{id}', ['uses' => 'FinancialAccountController@deleteAccount']);
 });
 
 
@@ -74,7 +83,4 @@ $router->get('/key', function () {
     return Str::random(32);
 });
 
-$router->get('/', ['uses' => 'prodController@awal']); 
-
-
-
+$router->get('/', ['uses' => 'prodController@awal']);
