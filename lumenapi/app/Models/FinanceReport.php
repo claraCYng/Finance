@@ -16,16 +16,4 @@ class FinanceReport extends Model
         'tanggal_transaksi',
         'jumlah_laba'
     ];
-
-    public static function hitung_laba($tahun)
-    {
-        $data = FinanceReport::where('tahun', $tahun)->get();
-        $laba = 0;
-
-        foreach ($data as $row) {
-            $laba += $row->jumlah;
-        }
-
-        return $laba;
-    }
 }
